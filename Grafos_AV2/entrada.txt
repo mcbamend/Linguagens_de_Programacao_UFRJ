@@ -1,0 +1,8 @@
+Maria Clara 2.2
+Clara Danilo 1.0
+Danilo Davi 3.1
+Maria Danilo 1.2
+Clara Tony 2.5
+Tony Romeu 1.4
+Davi Romeu 2.0
+Maria Tony 3.0

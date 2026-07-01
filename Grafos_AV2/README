@@ -1,0 +1,60 @@
+Trabalho de Linguagens de Programação
+Grafos em C++
+
+Este programa lê um arquivo de entrada com arestas e pesos de um grafo não direcionado. A partir desse arquivo, o programa monta o grafo e permite acessar algumas funcionalidades por meio de um menu.
+
+O arquivo de entrada deve ter uma aresta por linha, no formato:
+
+vertice1 vertice2 peso
+
+Exemplo:
+
+Maria Clara 2.2
+Clara Danilo 1.0
+
+Neste trabalho, os vértices foram representados por nomes de pessoas, e o peso representa uma relação numérica entre elas.
+
+Classes utilizadas:
+
+- Vertice:
+representa um vértice do grafo e armazena seu nome.
+
+- Aresta:
+representa uma ligação entre dois vértices e armazena origem, destino e peso.
+
+- Grafo:
+armazena os vértices e as arestas, além de implementar as operações principais do programa.
+
+Funcionalidades do menu:
+
+1 - Imprimir matriz de adjacência
+2 - Imprimir graus dos vértices
+3 - Verificar se o grafo é conexo
+4 - Calcular menor caminho entre dois vértices
+5 - Mostrar centralidade de intermediação
+6 - Mostrar vértices e arestas
+0 - Sair
+
+Compilação:
+
+Para compilar o programa, execute:
+
+make
+
+Execução:
+
+Após compilar, execute:
+
+./programa
+
+Em seguida, digite o nome do arquivo de entrada. Exemplo:
+
+entrada.txt
+
+Observações:
+
+- O grafo é não direcionado.
+- A matriz de adjacência armazena os pesos das arestas.
+- A conectividade é verificada usando busca em profundidade.
+- O menor caminho é calculado usando uma versão simples do algoritmo de Dijkstra.
+- A centralidade de intermediação considera os caminhos mínimos entre pares de vértices.
