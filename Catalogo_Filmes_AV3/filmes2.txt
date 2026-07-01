@@ -1,0 +1,3 @@
+Parasita;Bong Joon-ho;2019;9.2
+Avatar;James Cameron;2009;8.2
+Titanic;James Cameron;1997;8.5
