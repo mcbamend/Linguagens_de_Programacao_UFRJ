@@ -1,0 +1,36 @@
+Trabalho 01 de Linguagens de Programação - Laboratório 4 - Sistema Financeiro (C++)
+
+O programa simula um sistema simples de análise financeira, permitindo cadastrar ativos e armazenar registros de valores ao longo do tempo. 
+Cada ativo possui um nome e vários registros de valores.
+
+O sistema possui três classes principais, sendo elas: RegistroValor, Ativo e SistemaFinanceiro. 
+O programa foi dividido em arquivos .h e .cpp para de forma a modularizar.
+
+Funcionalidades implementadas:
+- cadastro de ativos;
+- inserção de registros;
+- exibição de relatório;
+- cálculo de médias móveis;
+- ordenação de ativos pela média móvel;
+- detecção de variações anormais;
+- previsão do próximo valor utilizando regressão linear simples.
+
+Para compilar, executar no terminal:
+make
+
+Execução (Após compilar):
+
+Executar no terminal:
+./programa
+
+Arquivos do programa:
+- main.cpp
+- RegistroValor.h
+- RegistroValor.cpp
+- Ativo.h
+- Ativo.cpp
+- SistemaFinanceiro.h
+- SistemaFinanceiro.cpp
+- Makefile
+
+Obs:a média móvel utiliza janela N = 3 e a variação anormal é detectada quando a diferença percentual ultrapassa ±10%.
