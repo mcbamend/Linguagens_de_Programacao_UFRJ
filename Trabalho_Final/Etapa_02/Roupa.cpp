@@ -6,25 +6,43 @@ using namespace std;
 
 // Inicializa os dados comuns na classe Peca
 // e os atributos especificos da roupa.
-Roupa::Roupa(int id, string nome, string material, double preco,
-             int versatilidade, double temperaturaMinima,
-             double temperaturaMaxima, int conforto,
-             bool precisaManutencao, string tamanho,
+Roupa::Roupa(int id,
+             string nome,
+             string material,
+             double preco,
+             int versatilidade,
+             double temperaturaMinima,
+             double temperaturaMaxima,
+             double confortoMedio,
+             bool precisaManutencao,
+             int quantidadeUsos,
+             int diasSemUso,
+             bool temperaturaInformada,
+             string tamanho,
              string categoriaRoupa)
-    : Peca(id, nome, material, preco, versatilidade,
-           temperaturaMinima, temperaturaMaxima, conforto,
-           precisaManutencao) {
+    : Peca(id,
+           nome,
+           material,
+           preco,
+           versatilidade,
+           temperaturaMinima,
+           temperaturaMaxima,
+           confortoMedio,
+           precisaManutencao,
+           quantidadeUsos,
+           diasSemUso,
+           temperaturaInformada) {
 
     this->tamanho = tamanho;
     this->categoriaRoupa = categoriaRoupa;
 }
 
-// Retorna o tamanho cadastrado para a roupa.
+// Retorna o tamanho da roupa.
 string Roupa::getTamanho() const {
     return tamanho;
 }
 
-// Retorna a categoria especifica, como camisa, calca ou vestido.
+// Retorna a categoria da roupa.
 string Roupa::getCategoriaRoupa() const {
     return categoriaRoupa;
 }
@@ -50,7 +68,10 @@ void Roupa::imprimir(ostream& out) const {
 
     Peca::imprimir(out);
 
-    out << "Tamanho: " << tamanho << endl;
+    out << "Tamanho: "
+        << tamanho
+        << endl;
+
     out << "Categoria da roupa: "
         << categoriaRoupa
         << endl;
@@ -70,6 +91,7 @@ string Roupa::serializar() const {
           << getQuantidadeUsos() << ";"
           << getDiasSemUso() << ";"
           << getVersatilidade() << ";"
+          << getTemperaturaInformada() << ";"
           << getTemperaturaMinima() << ";"
           << getTemperaturaMaxima() << ";"
           << getConforto() << ";"

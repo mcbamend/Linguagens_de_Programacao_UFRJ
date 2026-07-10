@@ -3,22 +3,27 @@
 // Inicializa os dados comuns a todos os tipos de peca.
 Peca::Peca(int id, string nome, string material, double preco,
            int versatilidade, double temperaturaMinima,
-           double temperaturaMaxima, int conforto,
-           bool precisaManutencao) {
+           double temperaturaMaxima, double confortoMedio,
+           bool precisaManutencao,
+           int quantidadeUsos,
+           int diasSemUso,
+           bool temperaturaInformada) {
 
     this->id = id;
     this->nome = nome;
     this->material = material;
     this->preco = preco;
     this->versatilidade = versatilidade;
+
     this->temperaturaMinima = temperaturaMinima;
     this->temperaturaMaxima = temperaturaMaxima;
-    this->conforto = conforto;
+    this->temperaturaInformada = temperaturaInformada;
+
+    this->confortoMedio = confortoMedio;
     this->precisaManutencao = precisaManutencao;
 
-    // Uma peca nova ainda nao possui usos registrados.
-    quantidadeUsos = 0;
-    diasSemUso = 0;
+    this->quantidadeUsos = quantidadeUsos;
+    this->diasSemUso = diasSemUso;
 }
 
 // O destrutor e virtual porque os objetos serao acessados
@@ -62,8 +67,12 @@ double Peca::getTemperaturaMaxima() const {
     return temperaturaMaxima;
 }
 
-int Peca::getConforto() const {
-    return conforto;
+bool Peca::getTemperaturaInformada() const {
+    return temperaturaInformada;
+}
+
+double Peca::getConforto() const {
+    return confortoMedio;
 }
 
 bool Peca::getPrecisaManutencao() const {
@@ -82,8 +91,8 @@ void Peca::setVersatilidade(int versatilidade) {
     this->versatilidade = versatilidade;
 }
 
-void Peca::setConforto(int conforto) {
-    this->conforto = conforto;
+void Peca::setConforto(double confortoMedio) {
+    this->confortoMedio = confortoMedio;
 }
 
 void Peca::setPrecisaManutencao(bool precisaManutencao) {
@@ -94,19 +103,43 @@ void Peca::setDiasSemUso(int diasSemUso) {
     this->diasSemUso = diasSemUso;
 }
 
+// Atualiza a faixa de temperatura da peca.
+// Se temperaturaInformada for false, a faixa nao sera considerada.
+void Peca::setFaixaTemperatura(double temperaturaMinima,
+                               double temperaturaMaxima,
+                               bool temperaturaInformada) {
+
+    this->temperaturaMinima = temperaturaMinima;
+    this->temperaturaMaxima = temperaturaMaxima;
+    this->temperaturaInformada = temperaturaInformada;
+}
+
+// Restaura os dados que foram salvos no arquivo
+// ou informados no cadastro inicial.
+void Peca::restaurarHistorico(int quantidadeUsos,
+                              int diasSemUso,
+                              double confortoMedio) {
+
+    this->quantidadeUsos = quantidadeUsos;
+    this->diasSemUso = diasSemUso;
+    this->confortoMedio = confortoMedio;
+}
+
 // Registra um novo uso da peca.
-void Peca::registrarUso(int confortoInformado) {
+void Peca::registrarUso(double confortoInformado) {
 
     /*
-        No primeiro uso, a avaliacao informada substitui a avaliacao inicial.
-        Nos usos seguintes, e calculada uma media com as avaliacoes anteriores.
+        Se a peca ainda nao tinha usos registrados,
+        a nota informada se torna o conforto medio.
+
+        Se ja existiam usos, a nova nota entra na media.
     */
     if (quantidadeUsos == 0) {
-        conforto = confortoInformado;
+        confortoMedio = confortoInformado;
     }
     else {
-        conforto =
-            ((conforto * quantidadeUsos) + confortoInformado)
+        confortoMedio =
+            ((confortoMedio * quantidadeUsos) + confortoInformado)
             / (quantidadeUsos + 1);
     }
 
@@ -148,10 +181,18 @@ void Peca::imprimir(ostream& out) const {
     out << "Quantidade de usos: " << quantidadeUsos << endl;
     out << "Dias sem uso: " << diasSemUso << endl;
     out << "Versatilidade: " << versatilidade << endl;
-    out << "Faixa de temperatura: "
-        << temperaturaMinima << " a "
-        << temperaturaMaxima << " graus" << endl;
-    out << "Conforto medio: " << conforto << endl;
+
+    if (temperaturaInformada) {
+        out << "Faixa de temperatura: "
+            << temperaturaMinima << " a "
+            << temperaturaMaxima << " graus" << endl;
+    }
+    else {
+        out << "Faixa de temperatura: nao especificada" << endl;
+    }
+
+    out << "Conforto medio: " << confortoMedio << endl;
+
     out << "Precisa de manutencao: "
         << (precisaManutencao ? "Sim" : "Nao")
         << endl;
