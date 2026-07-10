@@ -65,8 +65,30 @@ Principais conceitos utilizados:
 
 Diretório destinado às etapas do trabalho final da disciplina.
 
-A primeira etapa contém o planejamento do ClosetLog, um sistema de inventário e análise de uso e manutenção de peças de vestuário, com um programa gerenciador em C++ e funções externas em Python.
+O trabalho final desenvolvido foi o **ClosetLog**, um sistema de gerenciamento de guarda-roupa feito em **C++** com integração direta com **Python**.
 
+O sistema permite cadastrar roupas, calçados e acessórios, registrar usos, calcular custo por uso, buscar peças por nome, listar peças que precisam de manutenção e realizar análises sobre o aproveitamento das peças cadastradas.
+
+A primeira etapa contém o planejamento do projeto, incluindo a proposta inicial, a divisão entre o programa gerenciador em C++ e as funções externas em Python, além da descrição das funcionalidades previstas.
+
+A segunda etapa contém a implementação do sistema, utilizando conceitos como:
+
+* Classes e objetos
+* Herança
+* Polimorfismo
+* Métodos virtuais
+* Classe template
+* Sobrecarga de operadores
+* Tratamento de exceções
+* Persistência em arquivo
+* Busca por nome aproximado
+* Integração entre C++ e Python sem uso de `system()`
+* Uso de funções externas em Python com NumPy e scikit-learn
+
+As análises em Python incluem:
+
+* Identificação de peças subutilizadas com **Isolation Forest**
+* Agrupamento de peças por perfil de uso com **K-Means**
 ## Compilação
 
 Cada exercício possui seu próprio Makefile e README com as instruções específicas de compilação e execução.
