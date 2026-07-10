@@ -1,8 +1,10 @@
 # Linguagens de Programação - UFRJ
 
-Repositório criado para armazenar os exercícios avaliados e trabalhos desenvolvidos na disciplina Linguagens de Programação da UFRJ.
+Repositório criado para armazenar os exercícios avaliados e trabalhos desenvolvidos na disciplina **Linguagens de Programação [EEL670]** da UFRJ.
 
-Os programas foram desenvolvidos principalmente em C++, utilizando conceitos apresentados durante as aulas, como orientação a objetos, estruturas de dados, sobrecarga de operadores, herança, polimorfismo, templates e tratamento de exceções.
+Os programas foram desenvolvidos principalmente em **C++**, utilizando conceitos apresentados durante as aulas, como orientação a objetos, estruturas de dados, sobrecarga de operadores, herança, polimorfismo, templates, ponteiros, persistência em arquivo e tratamento de exceções.
+
+---
 
 ## Organização do repositório
 
@@ -20,6 +22,8 @@ Principais conceitos utilizados:
 * Regressão linear simples
 * Makefile
 
+---
+
 ### AV2 - Grafos
 
 Programa para leitura e análise de um grafo não direcionado e ponderado a partir de um arquivo de entrada.
@@ -31,6 +35,8 @@ Principais operações:
 * Verificação de conectividade com busca em profundidade
 * Caminho de menor custo com o algoritmo de Dijkstra
 * Centralidade de intermediação
+
+---
 
 ### AV3 - Catálogo de Filmes
 
@@ -45,6 +51,8 @@ Principais conceitos utilizados:
 * Inserção ordenada
 * Busca e remoção de filmes
 * Persistência em arquivo de texto
+
+---
 
 ### AV4 - Frota de Veículos
 
@@ -61,17 +69,31 @@ Principais conceitos utilizados:
 * Sobrecarga de operadores
 * Tratamento de exceções
 
-### Trabalho Final
+---
+
+### Trabalho Final - ClosetLog
 
 Diretório destinado às etapas do trabalho final da disciplina.
 
 O trabalho final desenvolvido foi o **ClosetLog**, um sistema de gerenciamento de guarda-roupa feito em **C++** com integração direta com **Python**.
 
-O sistema permite cadastrar roupas, calçados e acessórios, registrar usos, calcular custo por uso, buscar peças por nome, listar peças que precisam de manutenção e realizar análises sobre o aproveitamento das peças cadastradas.
+O sistema permite:
+
+* Cadastrar roupas, calçados e acessórios
+* Registrar usos de peças
+* Listar peças cadastradas
+* Buscar peças por ID ou por nome aproximado
+* Editar e remover peças
+* Calcular custo por uso
+* Listar peças que precisam de manutenção
+* Analisar peças subutilizadas
+* Agrupar peças por perfil de uso
 
 A primeira etapa contém o planejamento do projeto, incluindo a proposta inicial, a divisão entre o programa gerenciador em C++ e as funções externas em Python, além da descrição das funcionalidades previstas.
 
-A segunda etapa contém a implementação do sistema, utilizando conceitos como:
+A segunda etapa contém a implementação do sistema.
+
+Principais conceitos utilizados no trabalho final:
 
 * Classes e objetos
 * Herança
@@ -82,33 +104,22 @@ A segunda etapa contém a implementação do sistema, utilizando conceitos como:
 * Tratamento de exceções
 * Persistência em arquivo
 * Busca por nome aproximado
-* Integração entre C++ e Python sem uso de `system()`
+* Integração entre C++ e Python pela API do Python/C
+* Passagem de parâmetros e retorno de resultados sem arquivos intermediários
 * Uso de funções externas em Python com NumPy e scikit-learn
 
-As análises em Python incluem:
+As funções externas em Python incluem:
 
 * Identificação de peças subutilizadas com **Isolation Forest**
 * Agrupamento de peças por perfil de uso com **K-Means**
+
+---
+
 ## Compilação
 
-Cada exercício possui seu próprio Makefile e README com as instruções específicas de compilação e execução.
+Cada exercício possui seu próprio `Makefile` e, quando necessário, um `README` com instruções específicas de compilação e execução.
 
 De forma geral, para compilar um programa, é necessário entrar na pasta correspondente e executar:
 
-```
+```bash
 make
-```
-
-Depois, executar o programa utilizando o nome do executável indicado no README da atividade.
-
-Para remover o executável e os arquivos gerados durante a compilação:
-
-```
-make clean
-```
-
-## Autora
-
-Maria Clara Borges de Albuquerque de Mendonça
-
-Engenharia Eletrônica e de Computação - UFRJ
